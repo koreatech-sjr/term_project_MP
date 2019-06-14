@@ -13,11 +13,13 @@
 
 static int timerSettingIndex = 0;
 static int customTimer[6] = {0, };
-
+// SET기능 선택시 초기 화면 세팅용 플래그 0이면 초기 진입
+static int customTimeSetInitFlag = 0; 
 // clock용 변수
 static int second = 0;
 static int minute = 0;
 static int hour = 0;
+
 
 void setClock(int interruptSecond) {
 	second += interruptSecond;
@@ -51,6 +53,13 @@ int setCustomClock(int* ClockCounter_SECOND) {
 	
 	LcdMove(1,timerSettingIndex);
 	while(1) {
+		if(customTimeSetInitFlag == 0){
+			LcdMove(1,0);
+			LcdPuts("______");
+			LcdMove(1,0);
+			customTimeSetInitFlag = 1;
+		}
+		
 		if(keyInput == NO_KEY){
 			LcdCommand(DISP_OFF);
 			msec_delay(500);
@@ -141,7 +150,7 @@ int setCustomClock(int* ClockCounter_SECOND) {
 			hour = customTimer[0] * 10 + customTimer[1];
 			minute = customTimer[2] * 10 + customTimer[3];
 			second = customTimer[4] * 10 + customTimer[5];
-			
+			customTimeSetInitFlag = 0;
 		}
 		return returnStatus;
 		

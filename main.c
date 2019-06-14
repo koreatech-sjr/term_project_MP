@@ -72,7 +72,7 @@ int main(void) {
 
 		//==========================================================
 		//1. SET 에 해당됨
-		while(status==1){								
+		while(status==1) {								
 			//시간에 넣어줄 배열만들고 셋팅 >> (0,0)(0,4)(0,5)
 			status = setCustomClock(&ClockCounter_SECOND);	// Time setting(main.c 파일 안에 있음)	
 		}
