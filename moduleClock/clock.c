@@ -44,7 +44,6 @@ void setClock(int interruptSecond) {
 
 // 사용자에게 입력 받아 시계 세팅
 int setCustomClock(int* ClockCounter_SECOND) {
-//	LcdPuts("000000");
 	int returnStatus = -1;
 	unsigned char keyInput = NO_KEY;	//키가 눌리지 않으면
 	// 키를 입력받는 변수
@@ -113,8 +112,15 @@ int setCustomClock(int* ClockCounter_SECOND) {
 			
 			case SW11:				
 				LcdMove(1,0);
-				LcdPuts("1. SET      ");				
+				LcdPuts("1. SET          ");				
 				returnStatus = 0;
+				break;
+				
+			// 위로 키 입력되는 케이스
+			case SW3:
+				LcdMove(1, --timerSettingIndex);
+				LcdPutchar('_');
+				returnStatus = 1;
 				break;
 				
 			default:
@@ -129,6 +135,7 @@ int setCustomClock(int* ClockCounter_SECOND) {
 		// 6자리 입력 후 확인이 눌린 경우
 		else if(returnStatus == 0) {
 			timerSettingIndex = 0;
+			//클럭 카운터로 증가한 초 초기화
 			*ClockCounter_SECOND = 0;
 			// 입력받은 시간 초로 변경 후 현재 시계로 초기화 
 			hour = customTimer[0] * 10 + customTimer[1];
