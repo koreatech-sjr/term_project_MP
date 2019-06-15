@@ -30,6 +30,7 @@ unsigned short segmentDisplayNumber = 0;
 
 int setTimer(int* timerInitFlag) {
 	int returnStatus = -1;
+	
 	// 처음 진입시에만 실행
 	if(customTimerSetInitFlag == 0){
 		// 초기화면 세팅

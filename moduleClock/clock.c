@@ -21,7 +21,7 @@ static int minute = 0;
 static int hour = 0;
 
 
-void setClock(int interruptSecond) {
+void setClock(int interruptSecond, int segmentStopwatchInitFlag) {
 	second += interruptSecond;
 	minute += second/60; 
 	hour += minute/60;
@@ -30,21 +30,23 @@ void setClock(int interruptSecond) {
 	second = second%60;
 	minute = minute%60;
 	hour = hour%24;
-	
-	LcdMove(0,0);
-	LcdPutchar((hour/10%10) + '0');
-	LcdPutchar(hour%10 + '0');
-	LcdPutchar('h');
-	
-	LcdMove(0,4);
-	LcdPutchar((minute/10%10) + '0');
-	LcdPutchar(minute%10 + '0');
-	LcdPutchar('m');
-	
-	LcdMove(0,8);
-	LcdPutchar((second/10%10) + '0');
-	LcdPutchar(second%10 + '0');
-	LcdPutchar('s');
+	// STOPWATCH에서 LCD 사용중인 경우 미노출
+	if(segmentStopwatchInitFlag == 0) {
+		LcdMove(0,0);
+		LcdPutchar((hour/10%10) + '0');
+		LcdPutchar(hour%10 + '0');
+		LcdPutchar('h');
+		
+		LcdMove(0,4);
+		LcdPutchar((minute/10%10) + '0');
+		LcdPutchar(minute%10 + '0');
+		LcdPutchar('m');
+		
+		LcdMove(0,8);
+		LcdPutchar((second/10%10) + '0');
+		LcdPutchar(second%10 + '0');
+		LcdPutchar('s');
+	}
 }
 
 // 사용자에게 입력 받아 시계 세팅

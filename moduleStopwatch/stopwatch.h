@@ -11,6 +11,6 @@
 
 
 int setStopwatch();
-
+int set7SegmentStopwatch(int clock_counter, unsigned char stopwatchKeyInput);
 
 #endif /* STOPWATCH_H_ */

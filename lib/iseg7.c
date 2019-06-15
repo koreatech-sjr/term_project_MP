@@ -65,7 +65,7 @@ void ISeg7DispNum(unsigned short num, unsigned short radix)
 	for(j=1; j<N_BUF; j++) { cnumber[j] = 16; }
 	
 	j = 0;    		         //1자리를 가리킴
-	while(num)
+	while(j<=4)
 	{
 		cnumber[j++] = num % radix;  //나머지
 		num /= radix;                 // 몫

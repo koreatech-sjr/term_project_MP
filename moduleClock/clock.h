@@ -10,7 +10,7 @@
 #define CLOCK1_H_
 
 
-void setClock(int second);
+void setClock();
 int setCustomClock();
 
 

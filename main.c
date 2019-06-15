@@ -7,6 +7,7 @@
 #include "./moduleMenu/menu.h"
 #include "./moduleClock/clock.h"
 #include "./moduleTimer/timer.h"
+#include "./moduleStopwatch/stopwatch.h"
 
 static unsigned char keyInput;
 
@@ -21,9 +22,12 @@ static int ClockCounter_CNT = 0;
 // Clock Counter interrupt 으로 계산된 초
 static int ClockCounter_SECOND = 0; 
 static int ClockCounter_M_SECOND = 0; 
+static int ClockCounter_M_SECOND_ONLY_STOPWATCH = 0; 
 
 
 static int SegmentTimerInitFlag = 0;
+static int SegmentStopwatchInitFlag = 0;
+
 
 
 void ClockCounterInit(void) {
@@ -41,6 +45,7 @@ ISR(TIMER2_COMP_vect) {
 	}
 	if(ClockCounter_CNT % 2000 == 0) {
 		ClockCounter_M_SECOND = 1;
+		ClockCounter_M_SECOND_ONLY_STOPWATCH += 1;
 	}
 }
 
@@ -67,19 +72,23 @@ int main(void) {
 		
 	
 	while(1){
-		// 계속해서 클락 세팅
-		setClock(ClockCounter_SECOND);
-		
+		// 계속해서 클락 세팅 second parameter is not display flag 
+		setClock(ClockCounter_SECOND, SegmentStopwatchInitFlag);
+		// keypad input
+		keyInput = KeyInput();
+
 		if(SegmentTimerInitFlag == 1) {
 			SegmentTimerInitFlag = set7SegmentTimer(ClockCounter_M_SECOND);
 		}
 		
-		// 무조건 1초로 계산되게 하기위함
+		if(SegmentStopwatchInitFlag == 1) {
+			SegmentStopwatchInitFlag = set7SegmentStopwatch(ClockCounter_M_SECOND, keyInput);
+			//continue;
+		}
+		
+		// 무조건 1초 혹은 0.1초로 계산되게 하기위함
 		ClockCounter_SECOND = 0;
 		ClockCounter_M_SECOND = 0;
-		
-		// keypad input
-		keyInput = KeyInput();
 		
 		// 뭘 누르느냐에 따라 실행되는게 다름
 		status = setMenu(keyInput);	
@@ -95,6 +104,13 @@ int main(void) {
 		//status = 2
 		while(status==2){
 			status = setTimer(&SegmentTimerInitFlag);
+		}
+		
+		
+		//=========================================================
+		//status = 3
+		while(status==3){
+			status = setStopwatch(&SegmentStopwatchInitFlag);
 		}
 	
 		
