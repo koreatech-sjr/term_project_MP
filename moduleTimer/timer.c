@@ -125,6 +125,10 @@ int setTimer(int* timerInitFlag) {
 				customTimer[customTimerSettingIndex] = 0;
 				returnStatus = 2;
 				break;
+				
+			case SW15:
+				return -99;
+				break;
 			
 			default:
 				returnStatus = 2;

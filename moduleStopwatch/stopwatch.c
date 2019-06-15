@@ -62,7 +62,9 @@ int setStopwatch(int* stopwatchInitFlag) {
 				
 				LcdMove(0,0);
 				break;
-			
+			case SW15:
+				return -99;
+				break;
 			default:
 				returnStatus = 3;
 				break;

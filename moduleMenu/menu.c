@@ -87,6 +87,10 @@ int setMenu(char clickedButton) {
 			return nowStatus;
 			break;
 		
+		case SW15:
+			return -99;
+			break;
+			
 		default:
 			return 0;
 			break;

@@ -123,7 +123,10 @@ int setAlarm() {
 				customAlarm[customAlarmSettingIndex] = 0;
 				returnStatus = 4;
 				break;
-			
+				
+			case SW15:
+				return -99;
+				break;
 			default:
 				returnStatus = 4;
 				break;

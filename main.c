@@ -59,12 +59,13 @@ ISR(TIMER2_COMP_vect) {
 static int status = 0;
 
 int main(void) {
+back:
 	LcdInit();
 	KeyInit();
 	ClockCounterInit();
 	DDRB = 0x00;	//모터 돌아가지 않겠금
 	// 박가경's project <깜박 x 3>
-	//startTermProject();
+	startTermProject();
 	initMenu();
 		
 		
@@ -129,7 +130,9 @@ int main(void) {
 			AlarmTimeStore[2] = tmp[2];
 		}
 		
-		
+		if(status == -99) {
+			goto back;
+		}
 		
 	/*	// select key pressed   >>   선택버튼 눌렸을 때 setMenu에서 nowStatus 값을 받아 1번일때 case1
 		switch(keyInput) {

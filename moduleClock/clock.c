@@ -144,6 +144,10 @@ int setCustomClock(int* ClockCounter_SECOND) {
 				returnStatus = 1;
 				break;
 				
+			case SW15:
+				return -99;
+				break;
+				
 			default:
 				returnStatus = 1;
 				break;
