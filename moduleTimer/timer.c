@@ -113,6 +113,7 @@ int setTimer(int* timerInitFlag) {
 			case SW3:
 				LcdCommand(CURSOR_LSHIFT);
 				customTimerSettingIndex -= 1;
+				customTimer[customTimerSettingIndex] = 0;
 				returnStatus = 2;
 				break;
 				
@@ -120,6 +121,7 @@ int setTimer(int* timerInitFlag) {
 			case SW7:
 				customTimerSettingIndex += 1;
 				LcdCommand(CURSOR_RSHIFT);
+				customTimer[customTimerSettingIndex] = 0;
 				returnStatus = 2;
 				break;
 			
@@ -164,13 +166,12 @@ int set7SegmentTimer(int counter_m_seoncd) {
 		nowDisplayNumber -= 400;
 	}
 	segmentDisplayNumber = nowDisplayNumber;
-	
+	ISeg7DispNum(nowDisplayNumber , 10);
 	// 타이머 다됨
 	if(nowDisplayNumber == 0) {
 		// do something
-	
+		
 		return 0;	
 	}
-	ISeg7DispNum(nowDisplayNumber , 10);
-	return 0;
+	return 1;
 }

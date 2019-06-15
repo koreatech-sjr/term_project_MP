@@ -71,7 +71,7 @@ int main(void) {
 		setClock(ClockCounter_SECOND);
 		
 		if(SegmentTimerInitFlag == 1) {
-			set7SegmentTimer(ClockCounter_M_SECOND);
+			SegmentTimerInitFlag = set7SegmentTimer(ClockCounter_M_SECOND);
 		}
 		
 		// 무조건 1초로 계산되게 하기위함
@@ -90,9 +90,7 @@ int main(void) {
 			status = setCustomClock();	// Time setting(main.c 파일 안에 있음)	
 		}
 		
-		
-		
-		
+	
 		//=========================================================
 		//status = 2
 		while(status==2){
