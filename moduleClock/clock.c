@@ -21,7 +21,7 @@ static int minute = 0;
 static int hour = 0;
 
 
-void setClock(int interruptSecond, int segmentStopwatchInitFlag) {
+void setClock(int interruptSecond, int segmentStopwatchInitFlag, int* alarmStore) {
 	second += interruptSecond;
 	minute += second/60; 
 	hour += minute/60;
@@ -30,6 +30,12 @@ void setClock(int interruptSecond, int segmentStopwatchInitFlag) {
 	second = second%60;
 	minute = minute%60;
 	hour = hour%24;
+	
+	if(alarmStore[0] == hour && alarmStore[1] == minute && alarmStore[2] == second ){
+		//TODO: dotmatrix 추가
+		LcdMove(1,0);
+		LcdPuts("Alarm Alert");
+	}
 	// STOPWATCH에서 LCD 사용중인 경우 미노출
 	if(segmentStopwatchInitFlag == 0) {
 		LcdMove(0,0);

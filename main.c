@@ -8,6 +8,7 @@
 #include "./moduleClock/clock.h"
 #include "./moduleTimer/timer.h"
 #include "./moduleStopwatch/stopwatch.h"
+#include "./moduleAlarm/alarm.h"
 
 static unsigned char keyInput;
 
@@ -28,6 +29,7 @@ static int ClockCounter_M_SECOND_ONLY_STOPWATCH = 0;
 static int SegmentTimerInitFlag = 0;
 static int SegmentStopwatchInitFlag = 0;
 
+static int* AlarmTimeStore[3] = {-1,};
 
 
 void ClockCounterInit(void) {
@@ -74,7 +76,7 @@ int main(void) {
 	
 	while(1){
 		// 계속해서 클락 세팅 second parameter is not display flag 
-		setClock(ClockCounter_SECOND, SegmentStopwatchInitFlag);
+		setClock(ClockCounter_SECOND, SegmentStopwatchInitFlag, AlarmTimeStore);
 
 		if(SegmentTimerInitFlag == 1) {
 			SegmentTimerInitFlag = set7SegmentTimer(ClockCounter_M_SECOND);
@@ -116,6 +118,16 @@ int main(void) {
 		}
 	
 		
+		//=========================================================
+		//status = 4
+		while(status==4){
+			status = setAlarm();
+			int* tmp = getAlarmTime();
+			
+			AlarmTimeStore[0] = tmp[0];
+			AlarmTimeStore[1] = tmp[1];
+			AlarmTimeStore[2] = tmp[2];
+		}
 		
 		
 		

@@ -10,7 +10,8 @@
 #define ALARM_H_
 
 
-
+int setAlarm();
+int* getAlarmTime();
 
 
 #endif /* ALARM_H_ */
