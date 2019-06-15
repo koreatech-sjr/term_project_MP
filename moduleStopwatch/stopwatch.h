@@ -10,7 +10,7 @@
 #define STOPWATCH_H_
 
 
-
+int setStopwatch();
 
 
 #endif /* STOPWATCH_H_ */

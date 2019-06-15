@@ -9,7 +9,8 @@
 #ifndef TIMER_H_
 #define TIMER_H_
 
-
+int setTimer();
+int set7SegmentTimer(int counter_m_seoncd);
 
 
 

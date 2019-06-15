@@ -6,6 +6,7 @@
 #include "./lib/keypad.h"
 #include "./moduleMenu/menu.h"
 #include "./moduleClock/clock.h"
+#include "./moduleTimer/timer.h"
 
 static unsigned char keyInput;
 
@@ -21,6 +22,10 @@ static int ClockCounter_CNT = 0;
 static int ClockCounter_SECOND = 0; 
 static int ClockCounter_M_SECOND = 0; 
 
+
+static int SegmentTimerInitFlag = 0;
+
+
 void ClockCounterInit(void) {
 	TCCR2 |= (1<<WGM01);	//CTC mode
 	OCR2 = 100;				//50usec
@@ -34,8 +39,8 @@ ISR(TIMER2_COMP_vect) {
 		ClockCounter_CNT=0;
 		ClockCounter_SECOND++;
 	}
-	if(ClockCounter_CNT % 2000) {
-		ClockCounter_M_SECOND++;
+	if(ClockCounter_CNT % 2000 == 0) {
+		ClockCounter_M_SECOND = 1;
 	}
 }
 
@@ -51,7 +56,8 @@ int main(void) {
 	KeyInit();
 	ClockCounterInit();
 	
-	startTermProject();
+	// 박가경's project 
+	//startTermProject();
 	initMenu();
 		
 	// 전역 인터럽트 허용
@@ -63,7 +69,15 @@ int main(void) {
 	while(1){
 		// 계속해서 클락 세팅
 		setClock(ClockCounter_SECOND);
+		
+		if(SegmentTimerInitFlag == 1) {
+			set7SegmentTimer(ClockCounter_M_SECOND);
+		}
+		
+		// 무조건 1초로 계산되게 하기위함
 		ClockCounter_SECOND = 0;
+		ClockCounter_M_SECOND = 0;
+		
 		// keypad input
 		keyInput = KeyInput();
 		
@@ -73,23 +87,18 @@ int main(void) {
 		//==========================================================
 		//1. SET 에 해당됨
 		while(status==1) {								
-			//시간에 넣어줄 배열만들고 셋팅 >> (0,0)(0,4)(0,5)
-			status = setCustomClock(&ClockCounter_SECOND);	// Time setting(main.c 파일 안에 있음)	
+			status = setCustomClock();	// Time setting(main.c 파일 안에 있음)	
 		}
 		
 		
 		
 		
 		//=========================================================
-		//status =2
+		//status = 2
 		while(status==2){
-			LcdCommand(HOME);
-			LcdPuts("0m 00.0s     ");
-
-			LcdCommand(CURSOR_ON);
-			LcdCommand(HOME);
-			//status = setTimer();
+			status = setTimer(&SegmentTimerInitFlag);
 		}
+	
 		
 		
 		
