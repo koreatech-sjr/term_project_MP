@@ -15,7 +15,7 @@
 
 static int customTimerSettingIndex = 0;
 static int customTimer[8] = {0,0,0,0,0,0,0,0};
-// timer기능 선택시 초기 화면 세팅용 플래그 ; 0이면 초기 진입
+// timer메뉴 선택시 초기 화면 세팅용 플래그 ; 0이면 초기 진입
 static int customTimerSetInitFlag = 0;
 
 // LCD POS (0,0)

@@ -53,17 +53,18 @@ ISR(TIMER2_COMP_vect) {
 /* Clock Counter Settings 끝         */
 /*************************************/
 
-// 현재 메뉴 코드
+// 현재 메뉴를 알려주는 변수
 static int status = 0;
 
 int main(void) {
 	LcdInit();
 	KeyInit();
 	ClockCounterInit();
-	
-	// 박가경's project 
+	DDRB = 0x00;	//모터 돌아가지 않겠금
+	// 박가경's project <깜박 x 3>
 	//startTermProject();
 	initMenu();
+		
 		
 	// 전역 인터럽트 허용
 	sei();						
@@ -91,7 +92,7 @@ int main(void) {
 		// keypad input
 		keyInput = KeyInput();
 		
-		// 뭘 누르느냐에 따라 실행되는게 다름
+		// 어떤 상태에서 누르느냐에 따라 실행되는게 다름
 		status = setMenu(keyInput);	
 
 		//==========================================================
