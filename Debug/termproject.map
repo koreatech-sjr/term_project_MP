@@ -299,7 +299,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x102a
+.text           0x00000000     0x156a
  *(.vectors)
  .vectors       0x00000000       0x8c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega128/avr51/crtatmega128.o
                 0x00000000                __vector_default
@@ -358,123 +358,123 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000292        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega128/avr51/crtatmega128.o
+ .init9         0x00000292        0x6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega128/avr51/crtatmega128.o
  *(.init9)
  *(.text)
- .text          0x00000296        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega128/avr51/crtatmega128.o
-                0x00000296                __vector_22
-                0x00000296                __vector_28
-                0x00000296                __vector_1
-                0x00000296                __vector_32
-                0x00000296                __vector_34
-                0x00000296                __vector_24
-                0x00000296                __vector_12
-                0x00000296                __bad_interrupt
-                0x00000296                __vector_6
-                0x00000296                __vector_31
-                0x00000296                __vector_3
-                0x00000296                __vector_23
-                0x00000296                __vector_30
-                0x00000296                __vector_25
-                0x00000296                __vector_11
-                0x00000296                __vector_13
-                0x00000296                __vector_17
-                0x00000296                __vector_19
-                0x00000296                __vector_7
-                0x00000296                __vector_27
-                0x00000296                __vector_5
-                0x00000296                __vector_33
-                0x00000296                __vector_4
-                0x00000296                __vector_2
-                0x00000296                __vector_21
-                0x00000296                __vector_29
-                0x00000296                __vector_8
-                0x00000296                __vector_26
-                0x00000296                __vector_14
-                0x00000296                __vector_10
-                0x00000296                __vector_16
-                0x00000296                __vector_18
-                0x00000296                __vector_20
-                0x00000298                . = ALIGN (0x2)
+ .text          0x00000298        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega128/avr51/crtatmega128.o
+                0x00000298                __vector_22
+                0x00000298                __vector_28
+                0x00000298                __vector_1
+                0x00000298                __vector_32
+                0x00000298                __vector_34
+                0x00000298                __vector_24
+                0x00000298                __vector_12
+                0x00000298                __bad_interrupt
+                0x00000298                __vector_6
+                0x00000298                __vector_31
+                0x00000298                __vector_3
+                0x00000298                __vector_23
+                0x00000298                __vector_30
+                0x00000298                __vector_25
+                0x00000298                __vector_11
+                0x00000298                __vector_13
+                0x00000298                __vector_17
+                0x00000298                __vector_19
+                0x00000298                __vector_7
+                0x00000298                __vector_27
+                0x00000298                __vector_5
+                0x00000298                __vector_33
+                0x00000298                __vector_4
+                0x00000298                __vector_2
+                0x00000298                __vector_21
+                0x00000298                __vector_29
+                0x00000298                __vector_8
+                0x00000298                __vector_26
+                0x00000298                __vector_14
+                0x00000298                __vector_10
+                0x00000298                __vector_16
+                0x00000298                __vector_18
+                0x00000298                __vector_20
+                0x0000029a                . = ALIGN (0x2)
  *(.text.*)
  .text.ISeg7Init
-                0x00000298       0x26 lib/iseg7.o
-                0x00000298                ISeg7Init
+                0x0000029a       0x26 lib/iseg7.o
+                0x0000029a                ISeg7Init
  .text.ISeg7DispNum
-                0x000002be       0x3e lib/iseg7.o
-                0x000002be                ISeg7DispNum
+                0x000002c0       0x40 lib/iseg7.o
+                0x000002c0                ISeg7DispNum
  .text.__vector_15
-                0x000002fc       0x8c lib/iseg7.o
-                0x000002fc                __vector_15
+                0x00000300       0x8c lib/iseg7.o
+                0x00000300                __vector_15
  .text.key_scan
-                0x00000388       0x38 lib/keypad.o
- .text.KeyInit  0x000003c0        0xe lib/keypad.o
-                0x000003c0                KeyInit
+                0x0000038c       0x38 lib/keypad.o
+ .text.KeyInit  0x000003c4        0xe lib/keypad.o
+                0x000003c4                KeyInit
  .text.KeyInput
-                0x000003ce       0x58 lib/keypad.o
-                0x000003ce                KeyInput
+                0x000003d2       0x58 lib/keypad.o
+                0x000003d2                KeyInput
  .text.write_command
-                0x00000426       0x26 lib/lcd.o
+                0x0000042a       0x26 lib/lcd.o
  .text.LcdCommand
-                0x0000044c       0x46 lib/lcd.o
-                0x0000044c                LcdCommand
- .text.LcdInit  0x00000492       0x4a lib/lcd.o
-                0x00000492                LcdInit
+                0x00000450       0x46 lib/lcd.o
+                0x00000450                LcdCommand
+ .text.LcdInit  0x00000496       0x4a lib/lcd.o
+                0x00000496                LcdInit
  .text.LcdPutchar
-                0x000004dc       0x46 lib/lcd.o
-                0x000004dc                LcdPutchar
- .text.LcdPuts  0x00000522       0x1c lib/lcd.o
-                0x00000522                LcdPuts
- .text.LcdMove  0x0000053e       0x10 lib/lcd.o
-                0x0000053e                LcdMove
+                0x000004e0       0x46 lib/lcd.o
+                0x000004e0                LcdPutchar
+ .text.LcdPuts  0x00000526       0x1c lib/lcd.o
+                0x00000526                LcdPuts
+ .text.LcdMove  0x00000542       0x10 lib/lcd.o
+                0x00000542                LcdMove
  .text.msec_delay
-                0x0000054e       0x18 lib/lcd.o
-                0x0000054e                msec_delay
+                0x00000552       0x18 lib/lcd.o
+                0x00000552                msec_delay
  .text.ClockCounterInit
-                0x00000566       0x10 main.o
-                0x00000566                ClockCounterInit
+                0x0000056a       0x10 main.o
+                0x0000056a                ClockCounterInit
  .text.__vector_9
-                0x00000576       0x92 main.o
-                0x00000576                __vector_9
- .text.main     0x00000608       0xd8 main.o
-                0x00000608                main
+                0x0000057a       0x92 main.o
+                0x0000057a                __vector_9
+ .text.main     0x0000060c       0xda main.o
+                0x0000060c                main
  .text.setClock
-                0x000006e0       0xf0 moduleClock/clock.o
-                0x000006e0                setClock
+                0x000006e6       0xf8 moduleClock/clock.o
+                0x000006e6                setClock
  .text.setCustomClock
-                0x000007d0      0x28a moduleClock/clock.o
-                0x000007d0                setCustomClock
+                0x000007de      0x28a moduleClock/clock.o
+                0x000007de                setCustomClock
  .text.initMenu
-                0x00000a5a       0x1a moduleMenu/menu.o
-                0x00000a5a                initMenu
- .text.setMenu  0x00000a74      0x162 moduleMenu/menu.o
-                0x00000a74                setMenu
+                0x00000a68       0x1a moduleMenu/menu.o
+                0x00000a68                initMenu
+ .text.setMenu  0x00000a82      0x162 moduleMenu/menu.o
+                0x00000a82                setMenu
  .text.setStopwatch
-                0x00000bd6       0x8c moduleStopwatch/stopwatch.o
-                0x00000bd6                setStopwatch
+                0x00000be4       0x8c moduleStopwatch/stopwatch.o
+                0x00000be4                setStopwatch
  .text.set7SegmentStopwatch
-                0x00000c62       0x4a moduleStopwatch/stopwatch.o
-                0x00000c62                set7SegmentStopwatch
+                0x00000c70      0x576 moduleStopwatch/stopwatch.o
+                0x00000c70                set7SegmentStopwatch
  .text.setTimer
-                0x00000cac      0x2d6 moduleTimer/timer.o
-                0x00000cac                setTimer
+                0x000011e6      0x2da moduleTimer/timer.o
+                0x000011e6                setTimer
  .text.set7SegmentTimer
-                0x00000f82       0x44 moduleTimer/timer.o
-                0x00000f82                set7SegmentTimer
+                0x000014c0       0x46 moduleTimer/timer.o
+                0x000014c0                set7SegmentTimer
  .text.libgcc.div
-                0x00000fc6       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_udivmodhi4.o)
-                0x00000fc6                __udivmodhi4
+                0x00001506       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_udivmodhi4.o)
+                0x00001506                __udivmodhi4
  .text.libgcc.div
-                0x00000fee       0x26 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_divmodhi4.o)
-                0x00000fee                _div
-                0x00000fee                __divmodhi4
- .text.libgcc   0x00001014       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_tablejump2.o)
-                0x00001014                __tablejump2__
-                0x00001026                . = ALIGN (0x2)
+                0x0000152e       0x26 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_divmodhi4.o)
+                0x0000152e                _div
+                0x0000152e                __divmodhi4
+ .text.libgcc   0x00001554       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_tablejump2.o)
+                0x00001554                __tablejump2__
+                0x00001566                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001026        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
-                0x00001026                _exit
-                0x00001026                exit
+ .fini9         0x00001566        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+                0x00001566                _exit
+                0x00001566                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -493,11 +493,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001026        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+ .fini0         0x00001566        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000102a                _etext = .
+                0x0000156a                _etext = .
 
-.data           0x00800100       0xba load address 0x0000102a
+.data           0x00800100       0xa8 load address 0x0000156a
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -518,74 +518,79 @@ END GROUP
  .rodata.str1.1
                 0x0080016a       0x18 moduleClock/clock.o
  .rodata.str1.1
-                0x00800182       0x20 moduleStopwatch/stopwatch.o
-                                 0x2f (size before relaxing)
+                0x00800182        0xe moduleStopwatch/stopwatch.o
+                                 0x1d (size before relaxing)
  .rodata.str1.1
-                0x008001a2       0x17 moduleTimer/timer.o
+                0x00800190       0x17 moduleTimer/timer.o
                                  0x25 (size before relaxing)
  *(.gnu.linkonce.r*)
-                0x008001ba                . = ALIGN (0x2)
- *fill*         0x008001b9        0x1 
-                0x008001ba                _edata = .
-                0x008001ba                PROVIDE (__data_end, .)
+                0x008001a8                . = ALIGN (0x2)
+ *fill*         0x008001a7        0x1 
+                0x008001a8                _edata = .
+                0x008001a8                PROVIDE (__data_end, .)
 
-.bss            0x008001ba       0x44
-                0x008001ba                PROVIDE (__bss_start, .)
+.bss            0x008001a8      0x817
+                0x008001a8                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.index.1754
-                0x008001ba        0x2 lib/iseg7.o
- .bss.pin       0x008001bc        0x1 lib/keypad.o
- .bss.status    0x008001bd        0x2 main.o
+                0x008001a8        0x2 lib/iseg7.o
+ .bss.pin       0x008001aa        0x1 lib/keypad.o
+ .bss.status    0x008001ab        0x2 main.o
  .bss.SegmentStopwatchInitFlag
-                0x008001bf        0x2 main.o
+                0x008001ad        0x2 main.o
  .bss.SegmentTimerInitFlag
-                0x008001c1        0x2 main.o
+                0x008001af        0x2 main.o
  .bss.ClockCounter_M_SECOND_ONLY_STOPWATCH
-                0x008001c3        0x2 main.o
+                0x008001b1        0x2 main.o
  .bss.ClockCounter_M_SECOND
-                0x008001c5        0x2 main.o
+                0x008001b3        0x2 main.o
  .bss.ClockCounter_SECOND
-                0x008001c7        0x2 main.o
+                0x008001b5        0x2 main.o
  .bss.ClockCounter_CNT
-                0x008001c9        0x2 main.o
- .bss.keyInput  0x008001cb        0x1 main.o
- .bss.hour      0x008001cc        0x2 moduleClock/clock.o
- .bss.minute    0x008001ce        0x2 moduleClock/clock.o
- .bss.second    0x008001d0        0x2 moduleClock/clock.o
+                0x008001b7        0x2 main.o
+ .bss.hour      0x008001b9        0x2 moduleClock/clock.o
+ .bss.minute    0x008001bb        0x2 moduleClock/clock.o
+ .bss.second    0x008001bd        0x2 moduleClock/clock.o
  .bss.customClockSetInitFlag
-                0x008001d2        0x2 moduleClock/clock.o
+                0x008001bf        0x2 moduleClock/clock.o
  .bss.customClock
-                0x008001d4        0xc moduleClock/clock.o
+                0x008001c1        0xc moduleClock/clock.o
  .bss.customClockSettingIndex
-                0x008001e0        0x2 moduleClock/clock.o
+                0x008001cd        0x2 moduleClock/clock.o
  .bss.nowMenuCursor
-                0x008001e2        0x2 moduleMenu/menu.o
+                0x008001cf        0x2 moduleMenu/menu.o
+ .bss.stopwatchDisplayIndex
+                0x008001d1        0x2 moduleStopwatch/stopwatch.o
+ .bss.stopwatchStopFlag
+                0x008001d3        0x2 moduleStopwatch/stopwatch.o
  .bss.customStopwatchSetInitFlag
-                0x008001e4        0x2 moduleStopwatch/stopwatch.o
+                0x008001d5        0x2 moduleStopwatch/stopwatch.o
+ .bss.segmentStopwatchDisplayNumberArray
+                0x008001d7      0x7d0 moduleStopwatch/stopwatch.o
  .bss.segmentStopwatchDisplayNumber
-                0x008001e6        0x2 moduleStopwatch/stopwatch.o
-                0x008001e6                segmentStopwatchDisplayNumber
+                0x008009a7        0x2 moduleStopwatch/stopwatch.o
+                0x008009a7                segmentStopwatchDisplayNumber
  .bss.segmentDisplayNumber
-                0x008001e8        0x2 moduleTimer/timer.o
-                0x008001e8                segmentDisplayNumber
+                0x008009a9        0x2 moduleTimer/timer.o
+                0x008009a9                segmentDisplayNumber
  .bss.customTimerSetInitFlag
-                0x008001ea        0x2 moduleTimer/timer.o
+                0x008009ab        0x2 moduleTimer/timer.o
  .bss.customTimer
-                0x008001ec       0x10 moduleTimer/timer.o
+                0x008009ad       0x10 moduleTimer/timer.o
  .bss.customTimerSettingIndex
-                0x008001fc        0x2 moduleTimer/timer.o
+                0x008009bd        0x2 moduleTimer/timer.o
  *(COMMON)
-                0x008001fe                PROVIDE (__bss_end, .)
-                0x0000102a                __data_load_start = LOADADDR (.data)
-                0x000010e4                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008009bf                PROVIDE (__bss_end, .)
+                0x0000156a                __data_load_start = LOADADDR (.data)
+                0x00001612                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008001fe        0x0
+.noinit         0x008009bf        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008001fe                _end = .
-                0x008001fe                PROVIDE (__heap_start, .)
+                0x008009bf                _end = .
+                0x008009bf                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -678,43 +683,43 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x27a3
+.debug_info     0x00000000     0x2b0b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x780 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_info    0x00000780      0x14a lib/iseg7.o
  .debug_info    0x000008ca      0x4d4 lib/keypad.o
  .debug_info    0x00000d9e      0x7f4 lib/lcd.o
- .debug_info    0x00001592      0x462 main.o
- .debug_info    0x000019f4      0x46c moduleClock/clock.o
- .debug_info    0x00001e60      0x2e1 moduleMenu/menu.o
- .debug_info    0x00002141      0x2be moduleStopwatch/stopwatch.o
- .debug_info    0x000023ff      0x3a4 moduleTimer/timer.o
+ .debug_info    0x00001592      0x465 main.o
+ .debug_info    0x000019f7      0x46c moduleClock/clock.o
+ .debug_info    0x00001e63      0x2e1 moduleMenu/menu.o
+ .debug_info    0x00002144      0x623 moduleStopwatch/stopwatch.o
+ .debug_info    0x00002767      0x3a4 moduleTimer/timer.o
 
-.debug_abbrev   0x00000000      0xff1
+.debug_abbrev   0x00000000     0x100c
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x718 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_abbrev  0x00000718       0xc0 lib/iseg7.o
  .debug_abbrev  0x000007d8      0x13d lib/keypad.o
  .debug_abbrev  0x00000915      0x1c2 lib/lcd.o
- .debug_abbrev  0x00000ad7      0x169 main.o
- .debug_abbrev  0x00000c40      0x10e moduleClock/clock.o
- .debug_abbrev  0x00000d4e       0xd5 moduleMenu/menu.o
- .debug_abbrev  0x00000e23       0xdf moduleStopwatch/stopwatch.o
- .debug_abbrev  0x00000f02       0xef moduleTimer/timer.o
+ .debug_abbrev  0x00000ad7      0x176 main.o
+ .debug_abbrev  0x00000c4d      0x10e moduleClock/clock.o
+ .debug_abbrev  0x00000d5b       0xd5 moduleMenu/menu.o
+ .debug_abbrev  0x00000e30       0xed moduleStopwatch/stopwatch.o
+ .debug_abbrev  0x00000f1d       0xef moduleTimer/timer.o
 
-.debug_line     0x00000000     0x1274
+.debug_line     0x00000000     0x1427
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x169 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_line    0x00000169      0x147 lib/iseg7.o
  .debug_line    0x000002b0      0x25e lib/keypad.o
  .debug_line    0x0000050e      0x312 lib/lcd.o
- .debug_line    0x00000820      0x304 main.o
- .debug_line    0x00000b24      0x253 moduleClock/clock.o
- .debug_line    0x00000d77      0x178 moduleMenu/menu.o
- .debug_line    0x00000eef      0x13e moduleStopwatch/stopwatch.o
- .debug_line    0x0000102d      0x247 moduleTimer/timer.o
+ .debug_line    0x00000820      0x310 main.o
+ .debug_line    0x00000b30      0x259 moduleClock/clock.o
+ .debug_line    0x00000d89      0x178 moduleMenu/menu.o
+ .debug_line    0x00000f01      0x2df moduleStopwatch/stopwatch.o
+ .debug_line    0x000011e0      0x247 moduleTimer/timer.o
 
-.debug_frame    0x00000000      0x3b0
+.debug_frame    0x00000000      0x3c0
  *(.debug_frame)
  .debug_frame   0x00000000       0x74 lib/iseg7.o
  .debug_frame   0x00000074       0x6c lib/keypad.o
@@ -722,10 +727,10 @@ END GROUP
  .debug_frame   0x000001dc       0xa4 main.o
  .debug_frame   0x00000280       0x50 moduleClock/clock.o
  .debug_frame   0x000002d0       0x40 moduleMenu/menu.o
- .debug_frame   0x00000310       0x54 moduleStopwatch/stopwatch.o
- .debug_frame   0x00000364       0x4c moduleTimer/timer.o
+ .debug_frame   0x00000310       0x64 moduleStopwatch/stopwatch.o
+ .debug_frame   0x00000374       0x4c moduleTimer/timer.o
 
-.debug_str      0x00000000      0x924
+.debug_str      0x00000000      0x967
  *(.debug_str)
  .debug_str     0x00000000      0x27d C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_str     0x0000027d      0x192 lib/iseg7.o
@@ -740,21 +745,21 @@ END GROUP
                                 0x266 (size before relaxing)
  .debug_str     0x00000788       0x50 moduleMenu/menu.o
                                 0x1d8 (size before relaxing)
- .debug_str     0x000007d8       0xac moduleStopwatch/stopwatch.o
-                                0x27a (size before relaxing)
- .debug_str     0x00000884       0xa0 moduleTimer/timer.o
+ .debug_str     0x000007d8       0xef moduleStopwatch/stopwatch.o
+                                0x2d1 (size before relaxing)
+ .debug_str     0x000008c7       0xa0 moduleTimer/timer.o
                                 0x293 (size before relaxing)
 
-.debug_loc      0x00000000     0x18c1
+.debug_loc      0x00000000     0x19b6
  *(.debug_loc)
  .debug_loc     0x00000000      0x183 lib/iseg7.o
  .debug_loc     0x00000183      0x587 lib/keypad.o
  .debug_loc     0x0000070a      0x996 lib/lcd.o
  .debug_loc     0x000010a0      0x151 main.o
- .debug_loc     0x000011f1      0x288 moduleClock/clock.o
- .debug_loc     0x00001479       0xf1 moduleMenu/menu.o
- .debug_loc     0x0000156a      0x190 moduleStopwatch/stopwatch.o
- .debug_loc     0x000016fa      0x1c7 moduleTimer/timer.o
+ .debug_loc     0x000011f1      0x298 moduleClock/clock.o
+ .debug_loc     0x00001489       0xf1 moduleMenu/menu.o
+ .debug_loc     0x0000157a      0x275 moduleStopwatch/stopwatch.o
+ .debug_loc     0x000017ef      0x1c7 moduleTimer/timer.o
 
 .debug_macinfo
  *(.debug_macinfo)

@@ -74,21 +74,22 @@ int main(void) {
 	while(1){
 		// 계속해서 클락 세팅 second parameter is not display flag 
 		setClock(ClockCounter_SECOND, SegmentStopwatchInitFlag);
-		// keypad input
-		keyInput = KeyInput();
 
 		if(SegmentTimerInitFlag == 1) {
 			SegmentTimerInitFlag = set7SegmentTimer(ClockCounter_M_SECOND);
 		}
 		
 		if(SegmentStopwatchInitFlag == 1) {
-			SegmentStopwatchInitFlag = set7SegmentStopwatch(ClockCounter_M_SECOND, keyInput);
-			//continue;
+			SegmentStopwatchInitFlag = set7SegmentStopwatch(ClockCounter_M_SECOND, KeyInput());
+			ClockCounter_M_SECOND = 0;
+			continue;
 		}
 		
 		// 무조건 1초 혹은 0.1초로 계산되게 하기위함
 		ClockCounter_SECOND = 0;
-		ClockCounter_M_SECOND = 0;
+		ClockCounter_M_SECOND = 0;		
+		// keypad input
+		keyInput = KeyInput();
 		
 		// 뭘 누르느냐에 따라 실행되는게 다름
 		status = setMenu(keyInput);	
