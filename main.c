@@ -55,6 +55,11 @@ ISR(TIMER2_COMP_vect) {
 /* Clock Counter Settings 끝         */
 /*************************************/
 
+
+
+
+
+
 // 현재 메뉴를 알려주는 변수
 static int status = 0;
 
@@ -101,7 +106,7 @@ back:
 		//==========================================================
 		//1. SET 에 해당됨
 		while(status==1) {								
-			status = setCustomClock();	// Time setting(main.c 파일 안에 있음)	
+			status = setCustomClock(&ClockCounter_SECOND);	// Time setting(main.c 파일 안에 있음)	
 		}
 		
 	

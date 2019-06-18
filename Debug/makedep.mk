@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+lib\dotMatrix.c
+
 lib\iseg7.c
 
 lib\keypad.c

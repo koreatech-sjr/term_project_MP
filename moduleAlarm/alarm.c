@@ -11,6 +11,7 @@
 #include "../lib/lcd.h"
 #include "../lib/keypad.h"
 #include "../lib/iseg7.h"
+#include "../lib/dotMatrix.h"
 #include "./alarm.h"
 
 static int customAlarmSettingIndex = 0;

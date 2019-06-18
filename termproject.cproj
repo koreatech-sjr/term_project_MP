@@ -138,6 +138,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="lib\dotMatrix.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lib\dotMatrix.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="lib\iseg7.c">
       <SubType>compile</SubType>
     </Compile>

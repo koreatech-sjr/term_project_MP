@@ -15,7 +15,8 @@ moduleAlarm/alarm.d moduleAlarm/alarm.o: ../moduleAlarm/alarm.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  ../moduleAlarm/../lib/lcd.h ../moduleAlarm/../lib/keypad.h \
- ../moduleAlarm/../lib/iseg7.h ../moduleAlarm/./alarm.h
+ ../moduleAlarm/../lib/iseg7.h ../moduleAlarm/../lib/dotMatrix.h \
+ ../moduleAlarm/./alarm.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -52,5 +53,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../moduleAlarm/../lib/keypad.h:
 
 ../moduleAlarm/../lib/iseg7.h:
+
+../moduleAlarm/../lib/dotMatrix.h:
 
 ../moduleAlarm/./alarm.h:

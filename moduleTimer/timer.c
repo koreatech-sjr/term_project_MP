@@ -11,8 +11,9 @@
 #include "../lib/lcd.h"
 #include "../lib/keypad.h"
 #include "../lib/iseg7.h"
+#include "../lib/dotMatrix.h"
 #include "./timer.h"
-#include "../moduleClock/clock.h"
+
 
 static int customTimerSettingIndex = 0;
 static int customTimer[8] = {0,0,0,0,0,0,0,0};
@@ -182,8 +183,8 @@ int set7SegmentTimer(int counter_m_seoncd) {
 	if(nowDisplayNumber == 0) {
 		// 도트 매트릭스 구동
 		timer1_init();	
-		dotmatrixActive();
-		return 0;	
+		dotmatrixActive();	// 여기서 계속 홀딩되는거임 이게 계속 돌아야하는데
+		return 0;
 	}
 	return 1;
 }
