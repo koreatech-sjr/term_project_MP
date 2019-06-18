@@ -15,7 +15,8 @@ moduleTimer/timer.d moduleTimer/timer.o: ../moduleTimer/timer.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  ../moduleTimer/../lib/lcd.h ../moduleTimer/../lib/keypad.h \
- ../moduleTimer/../lib/iseg7.h ../moduleTimer/./timer.h
+ ../moduleTimer/../lib/iseg7.h ../moduleTimer/./timer.h \
+ ../moduleTimer/../moduleClock/clock.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -54,3 +55,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../moduleTimer/../lib/iseg7.h:
 
 ../moduleTimer/./timer.h:
+
+../moduleTimer/../moduleClock/clock.h:

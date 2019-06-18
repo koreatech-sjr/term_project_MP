@@ -12,6 +12,8 @@
 
 void setClock();
 int setCustomClock();
+void timer1_init();
+void dotmatrixActive();
 
 
 #endif /* CLOCK1_H_ */

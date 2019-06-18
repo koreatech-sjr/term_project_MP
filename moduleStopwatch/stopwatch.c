@@ -21,17 +21,6 @@ static int customStopwatchSetInitFlag = 0;
 static int stopwatchStopFlag = 0;
 
 static int stopwatchDisplayIndex = 0;
-static int n_enter = 0;
-
-
-ISR(ADC_vect){
-	// 타이머1A가 16비트 타이머라서 8비트로 전환시키기 위한 코드
-	OCR1A = ADC>>2;	
-	n_enter++;
-	if(n_enter == 1000){
-		DDRB |= 0<<PB5;	// 모터 정지
-	}
-}
 
 int setStopwatch(int* stopwatchInitFlag) {
 	int returnStatus = -1;
@@ -96,26 +85,10 @@ int set7SegmentStopwatch(int clock_counter, unsigned char stopwatchKeyInput) {
 			
 				// 시간이 기록됨을 알리는 모터구동**************
 				
-				DDRB |= 1<<PB5; //PB5 = OC1A
-				
-				//타이머/카운터1 위상정정 PWM 파형발생모드
-				//타이머/카운터1 OCR1A와 하강일치 PWM 펄스 출력
-				TCCR1A = 1<<WGM10 | 1<<COM1A1;
-				
-				// 타이머/카운터1 64분주
-				// 주기 = 2*255(TOP)*64 / 16[MHz] = 2[ms]
-				TCCR1B = 1<<CS11 | 1<<CS10;
-				
-				// ADMUX: 외부 기준전압 선택 & 입력채널 ADC0 선택
-				
-				// A/D변환 활성화
-				// 연속모드 A/D 변환
-				// A/D변환 인터럽트 활성화
-				// 128분주 -> ADC클럭주파수 125[KHz] = 주기 8[us]
-				ADCSRA = 1<<ADEN | 1<<ADFR | 1<<ADIE | 7;
-				
-				ADCSRA |= 1<<ADSC; // A/D변환 시작
-			
+				DDRG = 0xFF;
+				PORTG = 0x0F;
+				msec_delay(100);   //0.1초 동안 구동
+				PORTG = 0x00;
 								
 				//************************************************
 
@@ -213,6 +186,9 @@ int set7SegmentStopwatch(int clock_counter, unsigned char stopwatchKeyInput) {
 				stopwatchStopFlag = 1;
 				stopwatchDisplayIndex-=1;	
 			}
+			break;
+		case SW15:
+			return -99;
 			break;
 	}
 	return 1;

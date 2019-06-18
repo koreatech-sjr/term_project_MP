@@ -63,11 +63,10 @@ back:
 	LcdInit();
 	KeyInit();
 	ClockCounterInit();
-	DDRB = 0x00;	//모터 돌아가지 않겠금
+
 	// 박가경's project <깜박 x 3>
 	startTermProject();
 	initMenu();
-		
 		
 	// 전역 인터럽트 허용
 	sei();						
@@ -76,7 +75,8 @@ back:
 		
 	
 	while(1){
-		// 계속해서 클락 세팅 second parameter is not display flag 
+		// 계속해서 클락 세팅 sec parameter는 디스플레이 플레그 아님 
+
 		setClock(ClockCounter_SECOND, SegmentStopwatchInitFlag, AlarmTimeStore);
 
 		if(SegmentTimerInitFlag == 1) {
@@ -130,6 +130,7 @@ back:
 			AlarmTimeStore[2] = tmp[2];
 		}
 		
+		// 이전 버튼
 		if(status == -99) {
 			goto back;
 		}

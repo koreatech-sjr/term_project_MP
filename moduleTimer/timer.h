@@ -13,5 +13,4 @@ int setTimer();
 int set7SegmentTimer(int counter_m_seoncd);
 
 
-
 #endif /* TIMER_H_ */

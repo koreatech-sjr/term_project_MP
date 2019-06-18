@@ -12,6 +12,7 @@
 #include "../lib/keypad.h"
 #include "../lib/iseg7.h"
 #include "./timer.h"
+#include "../moduleClock/clock.h"
 
 static int customTimerSettingIndex = 0;
 static int customTimer[8] = {0,0,0,0,0,0,0,0};
@@ -27,6 +28,7 @@ static int m_second = 0;
 
 // 7세그먼트 출력용 숫자
 unsigned short segmentDisplayNumber = 0;
+
 
 int setTimer(int* timerInitFlag) {
 	int returnStatus = -1;
@@ -125,6 +127,10 @@ int setTimer(int* timerInitFlag) {
 				customTimer[customTimerSettingIndex] = 0;
 				returnStatus = 2;
 				break;
+
+			case SW12:
+				returnStatus = 0;
+				break;
 				
 			case SW15:
 				return -99;
@@ -174,8 +180,9 @@ int set7SegmentTimer(int counter_m_seoncd) {
 	ISeg7DispNum(nowDisplayNumber , 10);
 	// 타이머 다됨
 	if(nowDisplayNumber == 0) {
-		// do something
-		
+		// 도트 매트릭스 구동
+		timer1_init();	
+		dotmatrixActive();
 		return 0;	
 	}
 	return 1;

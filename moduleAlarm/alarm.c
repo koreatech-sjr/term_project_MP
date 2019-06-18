@@ -19,7 +19,6 @@ static int customAlarm[12] = {0,};
 static int customAlarmSetInitFlag = 0;
 static int customAlarmSetDoneFlag = 0;
 
-
 static int alarmHour = 0;
 static int alarmMinute = 0;
 static int alarmSecond = 0;

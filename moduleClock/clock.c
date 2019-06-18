@@ -11,6 +11,7 @@
 #include "../lib/keypad.h"
 #include "./clock.h"
 
+
 static int customClockSettingIndex = 0;
 static int customClock[6] = {0, };
 // SET기능 선택시 초기 화면 세팅용 플래그 0이면 초기 진입
@@ -20,6 +21,27 @@ static int second = 0;
 static int minute = 0;
 static int hour = 0;
 
+// 도트매트릭스 구동용 변수
+static int rowindex = 0;		// 행(portE) 점등 변수
+static int columnindex = 0;		// 열(portB) 점등 변수
+// 도트매트릭스 패턴
+static unsigned char dotpattern[4] = {0xFC, 0xF3, 0xCF, 0x3F};
+// 도트매트릭스 패턴 변화용 타이머/카운터1 진입 횟수 변수
+static int timerDotCounter = 0;
+
+ISR(TIMER1_OVF_vect)
+{	
+	// keep a track of number of overflows
+	timerDotCounter++;
+	
+	// check for number of overflows here itself
+	// 30 overflows = 1 seconds delay (approx.)
+	if (timerDotCounter >= 30) // NOTE: '>=' used instead of '=='
+	{
+		if(rowindex++ == 4) rowindex = 0;
+		timerDotCounter = 0;   // reset overflow counter
+	}
+}
 
 void setClock(int interruptSecond, int segmentStopwatchInitFlag, int* alarmStore) {
 	second += interruptSecond;
@@ -31,11 +53,15 @@ void setClock(int interruptSecond, int segmentStopwatchInitFlag, int* alarmStore
 	minute = minute%60;
 	hour = hour%24;
 	
-	if(alarmStore[0] == hour && alarmStore[1] == minute && alarmStore[2] == second ){
-		//TODO: dotmatrix 추가
+	if(alarmStore[0] == hour && alarmStore[1] == minute && alarmStore[2] == second ){		
 		LcdMove(1,0);
 		LcdPuts("Alarm Alert");
+		//도트 매트리스로 알람
+		timer1_init();
+		dotmatrixActive();	
+		TCCR1B |= (1 << CS11);
 	}
+
 	// STOPWATCH에서 LCD 사용중인 경우 미노출
 	if(segmentStopwatchInitFlag == 0) {
 		LcdMove(0,0);
@@ -170,5 +196,46 @@ int setCustomClock(int* ClockCounter_SECOND) {
 		}
 		return returnStatus;
 		
+	}
+}
+
+
+void timer1_init()
+{
+	// set up timer with prescaler = 8
+	TCCR1B |= (1 << CS11);
+	
+	// initialize counter
+	TCNT1 = 0;
+	
+	// enable overflow interrupt
+	TIMSK |= (1 << TOIE1);
+	
+	// enable global interrupts
+	sei();
+	
+	// initialize overflow counter variable
+	timerDotCounter = 0;
+}
+
+void dotmatrixActive(){
+	DDRE = 0xFF;
+	DDRB = 0xFF;
+
+	// 패턴 초기화
+	rowindex = 0;
+	columnindex = 0;
+	PORTE = dotpattern[rowindex];
+	PORTB = 0xFF;
+
+	while(rowindex <= 4){
+		if(++columnindex == 8)	columnindex = 0;
+		PORTE = dotpattern[rowindex];	// 타이머카운터에 의해 패턴 바뀜
+		PORTB = 0x01 << columnindex;
+		second++;
+		if(rowindex == 4){
+			PORTE = 0xFF;
+			rowindex++;
+		}
 	}
 }
